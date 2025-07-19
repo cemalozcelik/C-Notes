@@ -1,0 +1,17 @@
+Array size: 10
+Array elements:
+Index Value     
+0     66        
+1     42        
+2     73        
+3     84        
+4     695       
+5     1000      
+6     1234      
+7     5678      
+8     91011     
+9     121314    
+Min: 42
+Max: 121314
+Sum: 221197
+Average: 22119.70
