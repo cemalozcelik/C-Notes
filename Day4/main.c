@@ -15,6 +15,8 @@ void save_array_to_file(int arr[], int size, const char* filename);
 void analyze_character_types(const char* text);
 void escape_sequences(void);
 void scientific_notation(void);
+void analyze_text_file(const char* filename);
+
 
 // Main function
 int main(void) {
@@ -74,9 +76,9 @@ int main(void) {
 
     // Analyze text file
     printf("=== Analyze Text File ===\n");
-    analyze_text_file("ascii.txt"); // Ensure this file exists in the same directory
+    analyze_text_file("ascii.txt");
     printf("\n");
-    
+
     return 0;
 }
 
@@ -296,10 +298,11 @@ void analyze_text_file(const char* filename) {
     FILE* file = fopen(filename, "r");
     if (!file) return;
     
-    int char_count[256] = {0};  // Array to count each ASCII character
+    int char_count[256] = {0};  // 256 ASCII characters 
+    // Initialize character count array to zero
     int c;
     
-    while ((c = fgetc(file)) != EOF) {
+    while ((c = fgetc(file)) != EOF) { // Read each character from the file
         char_count[c]++;
     }
     
@@ -388,4 +391,103 @@ Scientific Notation:
 2.8e8: 280000000.000000
 3.6E7:
 4123e-5: 0.041230
+
+=== Analyze Text File ===
+Character frequency analysis:
+ASCII 10: 128 times
+' ': 800 times
+'!': 1 times
+'"': 1 times
+'#': 1 times
+'$': 1 times
+'%': 1 times
+'&': 1 times
+''': 191 times
+'(': 1 times
+')': 1 times
+'*': 1 times
+'+': 1 times
+',': 1 times
+'-': 1 times
+'.': 1 times
+'/': 1 times
+'0': 32 times
+'1': 86 times
+'2': 56 times
+'3': 48 times
+'4': 48 times
+'5': 48 times
+'6': 48 times
+'7': 48 times
+'8': 31 times
+'9': 31 times
+':': 1 times
+';': 1 times
+'<': 1 times
+'=': 1 times
+'>': 1 times
+'?': 1 times
+'@': 1 times
+'A': 9 times
+'B': 9 times
+'C': 75 times
+'D': 9 times
+'E': 9 times
+'F': 9 times
+'G': 1 times
+'H': 1 times
+'I': 1 times
+'J': 1 times
+'K': 1 times
+'L': 1 times
+'M': 1 times
+'N': 1 times
+'O': 1 times
+'P': 1 times
+'Q': 1 times
+'R': 1 times
+'S': 1 times
+'T': 1 times
+'U': 1 times
+'V': 1 times
+'W': 1 times
+'X': 1 times
+'Y': 1 times
+'Z': 1 times
+'[': 1 times
+'\': 1 times
+']': 1 times
+'^': 1 times
+'_': 1 times
+'`': 1 times
+'a': 67 times
+'b': 1 times
+'c': 34 times
+'d': 1 times
+'e': 34 times
+'f': 1 times
+'g': 1 times
+'h': 34 times
+'i': 1 times
+'j': 1 times
+'k': 1 times
+'l': 34 times
+'m': 1 times
+'n': 34 times
+'o': 67 times
+'p': 1 times
+'q': 1 times
+'r': 100 times
+'s': 1 times
+'t': 67 times
+'u': 1 times
+'v': 1 times
+'w': 1 times
+'x': 1 times
+'y': 1 times
+'z': 1 times
+'{': 1 times
+'|': 1 times
+'}': 1 times
+'~': 1 times
 */

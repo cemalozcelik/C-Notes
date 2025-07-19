@@ -1,7 +1,6 @@
 # Day 4 C Programming Notes
 
 ## Number Systems and Constants
-*Building on Day 3: Arrays and Loops*
 
 ### Number System Representations in C
 
@@ -288,21 +287,12 @@ void analyze_character(char c) {
 ### Common Preprocessor Directives
 
 ```c
-#define _CRT_SECURE_NO_WARNINGS  // Disable MSVC security warnings
-#include <stdio.h>               // Include header file
-#include <ctype.h>               // Include character functions
-
 // Define constants
 #define PI 3.14159
 #define MAX_SIZE 100
 #define SQUARE(x) ((x) * (x))    // Function-like macro
 ```
 
-### Why _CRT_SECURE_NO_WARNINGS?
-
-This directive disables Microsoft Visual C++ warnings about "unsafe" functions like `scanf`, `strcpy`, etc. Microsoft recommends their "secure" versions (`scanf_s`, `strcpy_s`), but the standard C functions are perfectly safe when used correctly.
-
----
 
 ## Practical Examples
 
@@ -415,40 +405,6 @@ printf("Hello\012");         // Even less readable
 
 ---
 
-## Connection to Day 3 (Arrays and Loops)
-
-### Combining Arrays with File I/O
-
-```c
-void save_grades_to_file(int grades[], int count) {
-    FILE* file = fopen("grades.txt", "w");
-    if (!file) return;
-    
-    // Calculate statistics
-    int sum = 0, max = grades[0], min = grades[0];
-    for (int i = 0; i < count; i++) {
-        sum += grades[i];
-        if (grades[i] > max) max = grades[i];
-        if (grades[i] < min) min = grades[i];
-    }
-    
-    // Write to file
-    fprintf(file, "Grade Report\n");
-    fprintf(file, "============\n");
-    fprintf(file, "Total students: %d\n", count);
-    fprintf(file, "Average: %.2f\n", (double)sum / count);
-    fprintf(file, "Highest: %d\n", max);
-    fprintf(file, "Lowest: %d\n", min);
-    fprintf(file, "\nIndividual grades:\n");
-    
-    for (int i = 0; i < count; i++) {
-        fprintf(file, "Student %d: %d\n", i + 1, grades[i]);
-    }
-    
-    fclose(file);
-}
-```
-
 ### Processing Character Arrays
 
 ```c
@@ -479,4 +435,3 @@ void analyze_text_file(const char* filename) {
 }
 ```
 
-This Day 4 content builds upon your Day 3 knowledge of arrays and loops, adding file I/O, number systems, and character handling - essential skills for more advanced C programming!
